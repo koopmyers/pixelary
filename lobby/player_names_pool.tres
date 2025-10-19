@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PixelaryWordsPool" load_steps=2 format=3 uid="uid://dvghmipbh1b8o"]
+
+[ext_resource type="Script" uid="uid://dtkdq0knbqu2v" path="res://game/words_pool.gd" id="1_bpe7f"]
+
+[resource]
+script = ExtResource("1_bpe7f")
+source_file = "res://pixelary/lobby/player_names.txt"
+max_length = 10
+words = Array[StringName]([&"berryfox", &"mochicat", &"peachy", &"lilfrog", &"sunnybun", &"chococub", &"plumbee", &"mintpup", &"puffin", &"snailie", &"bobabun", &"applepi", &"mimifox", &"tatertot", &"cocobat", &"bunbun", &"tinypaw", &"beezy", &"cherryq", &"kitten", &"fruity", &"fuzzy", &"pandapop", &"ducky", &"snugbug", &"lemoni", &"peppy", &"momo", &"zuzu", &"cuppy", &"buzzy", &"nibbles", &"puffcat", &"hoppy", &"mochibun", &"bobafox", &"froggu", &"chibi", &"tutti", &"mimibun", &"cutiepi", &"puffpup", &"berryboo", &"bunzilla", &"sniffy", &"melocat", &"fluffo", &"tofubun", &"appleboo", &"honeypup", &"pawsy", &"tango", &"kiwibun", &"lunabee", &"tinyfox", &"minty", &"pluffy", &"cheery", &"bunnyq", &"pudding", &"zippy", &"bobacub", &"cuppa", &"snugfox", &"berrybug", &"melobun", &"wobbly", &"peachbun", &"tofufox", &"lilbee", &"sushicat", &"dumpli", &"honeybun", &"koko", &"pumpki", &"tippy", &"smolcat", &"mochiq", &"bunberry", &"sweetie", &"bobabug", &"cuppyq", &"snuggle", &"mimibee", &"hugbug", &"taffy", &"twixie", &"frufru", &"cozypup", &"lulu", &"cocobee", &"sunnyq", &"nibby", &"chocobun", &"muffin", &"peachpi", &"bobapup", &"plumcat", &"fluffy"])
+metadata/_custom_type_script = "uid://dtkdq0knbqu2v"

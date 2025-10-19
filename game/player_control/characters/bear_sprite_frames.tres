@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cmw8nx1ifk5me"]
+
+[ext_resource type="Texture2D" uid="uid://vawsddecn3uv" path="res://game/player_control/characters/characters.png" id="1_mupel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mupel"]
+atlas = ExtResource("1_mupel")
+region = Rect2(0, 120, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk2jv"]
+atlas = ExtResource("1_mupel")
+region = Rect2(24, 120, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5qoe"]
+atlas = ExtResource("1_mupel")
+region = Rect2(48, 120, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs1p3"]
+atlas = ExtResource("1_mupel")
+region = Rect2(24, 120, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mupel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk2jv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5qoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs1p3")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 4.0
+}]

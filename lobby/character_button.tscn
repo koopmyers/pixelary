@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgyn1oucebwtn"]
+
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_opffy"]
+[ext_resource type="Script" uid="uid://duphl8d45jpsg" path="res://lobby/character_button.gd" id="2_jcqtj"]
+[ext_resource type="SpriteFrames" uid="uid://cmw8nx1ifk5me" path="res://game/player_control/characters/bear_sprite_frames.tres" id="2_l7s0r"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="3_l7s0r"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_opffy"]
+resource_local_to_scene = false
+
+[node name="CharacterButton" type="Button"]
+custom_minimum_size = Vector2(28, 28)
+offset_right = 24.0
+offset_bottom = 24.0
+theme = ExtResource("1_opffy")
+theme_type_variation = &"CharacterButton"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_opffy")
+script = ExtResource("2_jcqtj")
+character_frames = ExtResource("2_l7s0r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, 2)
+sprite_frames = ExtResource("2_l7s0r")
+animation = &"idle"
+centered = false
+flip_h = true
+script = ExtResource("3_l7s0r")

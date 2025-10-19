@@ -1,0 +1,133 @@
+[gd_scene load_steps=16 format=3 uid="uid://ddktyqqpuv2y5"]
+
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_0cxeh"]
+[ext_resource type="Script" uid="uid://cy006uvidc4y" path="res://addons/tube/tube_client.gd" id="1_8agam"]
+[ext_resource type="Script" uid="uid://dju5jar8oe66p" path="res://pixelary.gd" id="1_fuu8q"]
+[ext_resource type="Texture2D" uid="uid://didnuo0ddtnge" path="res://theme/background.png" id="3_0xl6h"]
+[ext_resource type="PackedScene" uid="uid://dujkendqt6ls1" path="res://addons/tube/tube_inspector.tscn" id="4_bnd2o"]
+[ext_resource type="PackedScene" uid="uid://dyu7fqr207bw3" path="res://lobby/lobby.tscn" id="4_imr0h"]
+[ext_resource type="Resource" uid="uid://b0qddpn07vgly" path="res://pixelary_session_context.tres" id="4_k2lm8"]
+[ext_resource type="PackedScene" uid="uid://cdxuw4tjglnga" path="res://game/game.tscn" id="5_imr0h"]
+[ext_resource type="Script" uid="uid://yg2qc1w7jecv" path="res://theme/background.gd" id="5_xvpke"]
+[ext_resource type="Script" uid="uid://brgfb012n5e0" path="res://input_toggle_visibility.gd" id="7_fx43c"]
+[ext_resource type="Resource" uid="uid://de8dcb6ch7g4m" path="res://game/player_control/characters/character_collection.tres" id="9_abnv6"]
+[ext_resource type="Shader" uid="uid://4nkj614eslfn" path="res://theme/background.gdshader" id="9_f1eow"]
+[ext_resource type="PackedScene" uid="uid://dymta8wh4tcip" path="res://notification/notification.tscn" id="10_bh5qp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xl6h"]
+shader = ExtResource("9_f1eow")
+shader_parameter/speed_factor = 0.25
+
+[sub_resource type="InputEventKey" id="InputEventKey_k2lm8"]
+device = -1
+alt_pressed = true
+keycode = 73
+unicode = 238
+
+[node name="Pixelary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0cxeh")
+script = ExtResource("1_fuu8q")
+metadata/_edit_horizontal_guides_ = [174.0]
+
+[node name="TubeClient" type="Node" parent="." node_paths=PackedStringArray("multiplayer_root_node")]
+unique_name_in_owner = true
+script = ExtResource("1_8agam")
+context = ExtResource("4_k2lm8")
+multiplayer_root_node = NodePath("..")
+metadata/_custom_type_script = "uid://cy006uvidc4y"
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_0xl6h")
+instance_shader_parameters/black_color = Color(0.9999998, 0.89952594, 0.74350244, 1)
+instance_shader_parameters/white_color = Color(0.9999997, 0.9374531, 0.8092686, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0xl6h")
+stretch_mode = 1
+script = ExtResource("5_xvpke")
+lobby_black_color = Color(1, 0.8784314, 0.8901961, 1)
+lobby_white_color = Color(1, 0.92156863, 0.92941177, 1)
+connection_black_color = Color(1, 0.8980392, 0.74509805, 1)
+connection_white_color = Color(1, 0.9372549, 0.80784315, 1)
+game_black_color = Color(0.8, 0.9411765, 1, 1)
+game_white_color = Color(0.85490197, 0.9647059, 1, 1)
+
+[node name="Lobby" parent="." instance=ExtResource("4_imr0h")]
+unique_name_in_owner = true
+layout_mode = 1
+character_collection = ExtResource("9_abnv6")
+
+[node name="ConnectionScreen" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ConnectionScreen"]
+layout_mode = 2
+text = "Connecting"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Game" parent="." instance=ExtResource("5_imr0h")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Notification" parent="." instance=ExtResource("10_bh5qp")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="InputToggleVisibility" type="Node" parent="." node_paths=PackedStringArray("window")]
+script = ExtResource("7_fx43c")
+toggle_input_action = SubResource("InputEventKey_k2lm8")
+window = NodePath("../Window")
+
+[node name="Window" type="Window" parent="."]
+transparent_bg = true
+oversampling_override = 1.0
+position = Vector2i(6, 12)
+size = Vector2i(140, 162)
+visible = false
+unresizable = true
+always_on_top = true
+transparent = true
+
+[node name="InputToggleVisibility" type="Node" parent="Window" node_paths=PackedStringArray("window")]
+script = ExtResource("7_fx43c")
+toggle_input_action = SubResource("InputEventKey_k2lm8")
+window = NodePath("..")
+
+[node name="TubeInspector" parent="Window" node_paths=PackedStringArray("client") instance=ExtResource("4_bnd2o")]
+custom_minimum_size = Vector2(700, 810)
+offset_right = 700.0
+offset_bottom = 700.0
+scale = Vector2(0.2, 0.2)
+client = NodePath("../../TubeClient")
+
+[connection signal="error_raised" from="TubeClient" to="." method="_on_tube_client_error_raised"]
+[connection signal="peer_connected" from="TubeClient" to="." method="_on_tube_client_peer_connected"]
+[connection signal="peer_disconnected" from="TubeClient" to="." method="_on_tube_client_peer_disconnected"]
+[connection signal="peer_stabilized" from="TubeClient" to="." method="_on_tube_client_peer_stabilized"]
+[connection signal="peer_unstabilized" from="TubeClient" to="." method="_on_tube_client_peer_unstabilized"]
+[connection signal="session_created" from="TubeClient" to="." method="_on_tube_client_session_created"]
+[connection signal="session_joined" from="TubeClient" to="." method="_on_tube_client_session_joined"]
+[connection signal="session_left" from="TubeClient" to="." method="_on_tube_client_session_left"]
+[connection signal="created" from="Lobby" to="." method="_on_lobby_created"]
+[connection signal="joined" from="Lobby" to="." method="_on_lobby_joined"]
+[connection signal="nofitication_emited" from="Game" to="Notification" method="pop_up"]

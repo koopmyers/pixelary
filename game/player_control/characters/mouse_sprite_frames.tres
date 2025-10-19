@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bkdqois3htdvo"]
+
+[ext_resource type="Texture2D" uid="uid://vawsddecn3uv" path="res://game/player_control/characters/characters.png" id="1_bieqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bieqh"]
+atlas = ExtResource("1_bieqh")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slgxk"]
+atlas = ExtResource("1_bieqh")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjbjg"]
+atlas = ExtResource("1_bieqh")
+region = Rect2(48, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjh76"]
+atlas = ExtResource("1_bieqh")
+region = Rect2(24, 72, 24, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bieqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slgxk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjbjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjh76")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 4.0
+}]

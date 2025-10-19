@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://xxvi8xb4o7en"]
+
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_huavp"]
+[ext_resource type="Script" uid="uid://djd35pbucbax6" path="res://game/player_control/player_message_control.gd" id="1_l7me7"]
+
+[node name="PlayerMessageControl" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 24)
+offset_right = 53.0
+offset_bottom = 24.0
+theme = ExtResource("1_huavp")
+theme_type_variation = &"MessagePanelContainer"
+script = ExtResource("1_l7me7")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0123456789AB"
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

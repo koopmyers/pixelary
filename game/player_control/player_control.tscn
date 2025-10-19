@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://dos6iy6v70cq1"]
+
+[ext_resource type="Script" uid="uid://bv4pbniorv0q3" path="res://game/player_control/player_control.gd" id="1_erbxg"]
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_vhey4"]
+[ext_resource type="PackedScene" uid="uid://xxvi8xb4o7en" path="res://game/player_control/player_message_control.tscn" id="2_ht7ab"]
+[ext_resource type="SpriteFrames" uid="uid://cmw8nx1ifk5me" path="res://game/player_control/characters/bear_sprite_frames.tres" id="3_0mevs"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="4_i62og"]
+[ext_resource type="Texture2D" uid="uid://biwofjyilldsv" path="res://game/player_control/brush.png" id="4_igihf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e778l"]
+atlas = ExtResource("4_igihf")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aikpu"]
+atlas = ExtResource("4_igihf")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_felcs"]
+atlas = ExtResource("4_igihf")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8l4pp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e778l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aikpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e778l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_felcs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="PlayerControl" type="MarginContainer"]
+custom_minimum_size = Vector2(48, 24)
+offset_right = 128.0
+offset_bottom = 24.0
+theme = ExtResource("1_vhey4")
+script = ExtResource("1_erbxg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="CharacterContainer" type="MarginContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="GuessedIndicator" type="ColorRect" parent="HBoxContainer/CharacterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/CharacterContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="NameLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_type_variation = &"PlayerLabel"
+theme_override_colors/font_color = Color(0.93045783, 0.048393205, 0.27998665, 1)
+text = "0123456789"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="CharaterControl" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+
+[node name="CharacterAnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/CharaterControl"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("3_0mevs")
+animation = &"talk"
+autoplay = "idle"
+frame_progress = 0.6286973
+centered = false
+script = ExtResource("4_i62og")
+
+[node name="DrawingAnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/CharaterControl"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(22, 21)
+sprite_frames = SubResource("SpriteFrames_8l4pp")
+autoplay = "default"
+script = ExtResource("4_i62og")
+
+[node name="MessagePivot" type="Control" parent="HBoxContainer/CharaterControl"]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 12.0
+offset_right = 6.0
+offset_bottom = 12.0
+
+[node name="MessageControl" parent="HBoxContainer/CharaterControl/MessagePivot" instance=ExtResource("2_ht7ab")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -24.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[connection signal="visibility_changed" from="HBoxContainer/CharaterControl/MessagePivot/MessageControl" to="." method="_on_message_control_visibility_changed"]

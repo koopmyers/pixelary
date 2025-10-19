@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dymta8wh4tcip"]
+
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_etlu1"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="2_67n5y"]
+[ext_resource type="Script" uid="uid://7k44qp44f8ky" path="res://notification/notification.gd" id="2_j2ble"]
+[ext_resource type="SpriteFrames" uid="uid://oayoqfhiv1to" path="res://notification/cross_icon_frames.tres" id="3_grgnt"]
+
+[node name="Notification" type="PanelContainer"]
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 24.0
+grow_horizontal = 2
+mouse_filter = 2
+theme = ExtResource("1_etlu1")
+theme_type_variation = &"TopPanelContainer"
+script = ExtResource("2_j2ble")
+normal_position = Vector2(32, -24)
+pop_up_position = Vector2(32, 0)
+pop_up_duration = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="IconControl" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/IconControl"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("3_grgnt")
+frame_progress = 0.811176
+centered = false
+script = ExtResource("2_67n5y")
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Room id copied to clipboard"

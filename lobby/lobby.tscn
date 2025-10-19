@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://dyu7fqr207bw3"]
+
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_fxcqn"]
+[ext_resource type="Script" uid="uid://djl8pq2o0wc8i" path="res://lobby/lobby.gd" id="1_qk045"]
+[ext_resource type="Script" uid="uid://bwo0ufxfcxgjv" path="res://better_line_edit.gd" id="3_1e5ti"]
+[ext_resource type="Resource" uid="uid://dvghmipbh1b8o" path="res://lobby/player_names_pool.tres" id="3_lu12p"]
+[ext_resource type="Script" uid="uid://flf4qjtbxfux" path="res://lobby/characters_selector.gd" id="4_ekjff"]
+[ext_resource type="PackedScene" uid="uid://bgyn1oucebwtn" path="res://lobby/character_button.tscn" id="4_th150"]
+[ext_resource type="SpriteFrames" uid="uid://uxfnp6tn6fyd" path="res://game/player_control/characters/beaver_sprite_frames.tres" id="5_shs3f"]
+[ext_resource type="SpriteFrames" uid="uid://bkdqois3htdvo" path="res://game/player_control/characters/mouse_sprite_frames.tres" id="6_xu7he"]
+[ext_resource type="SpriteFrames" uid="uid://32h54hmbgtbr" path="res://game/player_control/characters/fox_sprite_frames.tres" id="8_ekjff"]
+[ext_resource type="SpriteFrames" uid="uid://dc5027rw5p41u" path="res://game/player_control/characters/raccoon_sprite_frames.tres" id="9_5bro4"]
+[ext_resource type="SpriteFrames" uid="uid://rpvqdc53okqq" path="res://game/player_control/characters/rabbit_sprite_frames.tres" id="10_xu7he"]
+
+[node name="Lobby" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fxcqn")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("1_qk045")
+player_names_pool = ExtResource("3_lu12p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"LabelH1"
+text = "Choose a character"
+horizontal_alignment = 1
+
+[node name="CharactersSelector" type="GridContainer" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+script = ExtResource("4_ekjff")
+
+[node name="CharacterButton" parent="HBoxContainer/VBoxContainer/CharactersSelector" instance=ExtResource("4_th150")]
+layout_mode = 2
+button_pressed = true
+
+[node name="CharacterButton2" parent="HBoxContainer/VBoxContainer/CharactersSelector" instance=ExtResource("4_th150")]
+layout_mode = 2
+character_frames = ExtResource("6_xu7he")
+
+[node name="CharacterButton3" parent="HBoxContainer/VBoxContainer/CharactersSelector" instance=ExtResource("4_th150")]
+layout_mode = 2
+character_frames = ExtResource("5_shs3f")
+
+[node name="CharacterButton4" parent="HBoxContainer/VBoxContainer/CharactersSelector" instance=ExtResource("4_th150")]
+layout_mode = 2
+character_frames = ExtResource("8_ekjff")
+
+[node name="CharacterButton5" parent="HBoxContainer/VBoxContainer/CharactersSelector" instance=ExtResource("4_th150")]
+layout_mode = 2
+character_frames = ExtResource("9_5bro4")
+
+[node name="CharacterButton6" parent="HBoxContainer/VBoxContainer/CharactersSelector" instance=ExtResource("4_th150")]
+layout_mode = 2
+character_frames = ExtResource("10_xu7he")
+
+[node name="NameLineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_type_variation = &"PurpleLineEdit"
+placeholder_text = "Name"
+alignment = 1
+max_length = 10
+selecting_enabled = false
+script = ExtResource("3_1e5ti")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="CreateButton" type="Button" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_vertical = 2
+theme_type_variation = &"GreenButton"
+text = "CREATE A NEW ROOM"
+
+[node name="JoinControl" type="VBoxContainer" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -5
+
+[node name="JoinLineEdit" type="LineEdit" parent="HBoxContainer/HBoxContainer/JoinControl" node_paths=PackedStringArray("button")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_type_variation = &"OrangeLineEdit"
+placeholder_text = "Enter Room ID"
+alignment = 1
+max_length = 5
+selecting_enabled = false
+script = ExtResource("3_1e5ti")
+button = NodePath("../JoinButton")
+
+[node name="JoinButton" type="Button" parent="HBoxContainer/HBoxContainer/JoinControl"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"OrangeButton"
+text = "JOIN A ROOM"
+
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="text_submitted" from="HBoxContainer/HBoxContainer/JoinControl/JoinLineEdit" to="." method="_on_join_line_edit_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/HBoxContainer/JoinControl/JoinButton" to="." method="_on_join_button_pressed"]

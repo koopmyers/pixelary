@@ -1,0 +1,331 @@
+[gd_scene load_steps=25 format=3 uid="uid://cdxuw4tjglnga"]
+
+[ext_resource type="Script" uid="uid://dvtrwnk4fpcv5" path="res://game/game.gd" id="1_kdnv0"]
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_niqm5"]
+[ext_resource type="Script" uid="uid://4qxe4uqfwwsg" path="res://game/clipboard_button.gd" id="2_nx850"]
+[ext_resource type="Resource" uid="uid://bcnd5b5eajcry" path="res://game/english_word_pool.tres" id="2_p2q7i"]
+[ext_resource type="Resource" uid="uid://de8dcb6ch7g4m" path="res://game/player_control/characters/character_collection.tres" id="3_4l2cn"]
+[ext_resource type="SpriteFrames" uid="uid://dxf3mr5bwskxq" path="res://game/star_frames.tres" id="3_7tl1q"]
+[ext_resource type="Script" uid="uid://c4px36lfoexf0" path="res://game/player_control/players_container.gd" id="4_vjtq2"]
+[ext_resource type="PackedScene" uid="uid://dos6iy6v70cq1" path="res://game/player_control/player_control.tscn" id="4_w2yr6"]
+[ext_resource type="Script" uid="uid://bfrcbsplqiid1" path="res://game/paint/color_palette.gd" id="5_7tl1q"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="5_ff2ot"]
+[ext_resource type="PackedScene" uid="uid://cba3nxvn044g4" path="res://game/paint/color_button.tscn" id="6_pi2sa"]
+[ext_resource type="Script" uid="uid://bmfdcwttbbqay" path="res://game/paint/paint_surface.gd" id="7_4l2cn"]
+[ext_resource type="PackedScene" uid="uid://c8i2mhxpa8to6" path="res://game/word_control.tscn" id="7_gt7ep"]
+[ext_resource type="Script" uid="uid://bk8ldpyeb4js4" path="res://game/paint/paint_cursor.gd" id="8_ff2ot"]
+[ext_resource type="PackedScene" uid="uid://sqk4gsw6si3e" path="res://game/end_turn_control.tscn" id="8_t7q03"]
+[ext_resource type="Texture2D" uid="uid://bblpobvrbvblp" path="res://addons/tube/panel/icons/icons_sheet_white.png" id="9_5m1k3"]
+[ext_resource type="Script" uid="uid://bwo0ufxfcxgjv" path="res://better_line_edit.gd" id="11_2le52"]
+[ext_resource type="Texture2D" uid="uid://bsp0aqdoolb10" path="res://theme/icons.png" id="13_pi2sa"]
+
+[sub_resource type="Image" id="Image_ln7ps"]
+data = {
+"data": PackedByteArray(255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229, 255, 244, 229),
+"format": "RGB8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_pxxsx"]
+image = SubResource("Image_ln7ps")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m1k3"]
+atlas = ExtResource("13_pi2sa")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjswy"]
+atlas = ExtResource("13_pi2sa")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6361"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m1k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjswy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mevw"]
+atlas = ExtResource("9_5m1k3")
+region = Rect2(100, 700, 100, 100)
+
+[node name="Game" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_niqm5")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_kdnv0")
+characters_collection = ExtResource("3_4l2cn")
+metadata/_edit_vertical_guides_ = [16.0, 17.0]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LeftContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="RoundControl" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/LeftContainer/RoundControl"]
+layout_mode = 2
+text = "Round "
+
+[node name="RoundLabel" type="Label" parent="VBoxContainer/HBoxContainer/LeftContainer/RoundControl"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelH2"
+text = "0"
+
+[node name="SlashLabel" type="Label" parent="VBoxContainer/HBoxContainer/LeftContainer/RoundControl"]
+layout_mode = 2
+theme_type_variation = &"LabelH2"
+text = "/"
+
+[node name="MaxRoundLabel" type="Label" parent="VBoxContainer/HBoxContainer/LeftContainer/RoundControl"]
+layout_mode = 2
+theme_type_variation = &"LabelH2"
+text = "3"
+
+[node name="PointsControl" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="StarControl" type="Control" parent="VBoxContainer/HBoxContainer/LeftContainer/PointsControl"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="StarAnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/LeftContainer/PointsControl/StarControl"]
+position = Vector2(8, 8)
+sprite_frames = ExtResource("3_7tl1q")
+autoplay = "default"
+frame_progress = 0.45855683
+script = ExtResource("5_ff2ot")
+is_reference = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/LeftContainer/PointsControl"]
+visible = false
+layout_mode = 2
+text = "Points: "
+
+[node name="PointsLabel" type="Label" parent="VBoxContainer/HBoxContainer/LeftContainer/PointsControl"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelH2"
+text = "0"
+
+[node name="ColorPalette" type="GridContainer" parent="VBoxContainer/HBoxContainer/LeftContainer" node_paths=PackedStringArray("paint_cursor")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 4
+script = ExtResource("5_7tl1q")
+paint_cursor = NodePath("../../../../PaintCursor")
+
+[node name="Button" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+button_pressed = true
+color = Color(0.1336, 0.08850001, 0.15, 1)
+
+[node name="Button2" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+color = Color(1, 0.95686275, 0.8980392, 1)
+
+[node name="Button3" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+color = Color(0.9647059, 0.3647059, 0.39607844, 1)
+
+[node name="Button4" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+color = Color(0.9580334, 0.5963642, 0.14793393, 1)
+
+[node name="Button5" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+color = Color(1, 0.8745098, 0.30980393, 1)
+
+[node name="Button6" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+color = Color(0.4, 0.88235295, 0.40784314, 1)
+
+[node name="Button7" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+color = Color(0.29803923, 0.64705884, 0.972549, 1)
+
+[node name="Button8" parent="VBoxContainer/HBoxContainer/LeftContainer/ColorPalette" instance=ExtResource("6_pi2sa")]
+layout_mode = 2
+color = Color(0.78039217, 0.41960785, 0.9490196, 1)
+
+[node name="SessionControl" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/LeftContainer/SessionControl"]
+layout_mode = 2
+text = "Room ID"
+
+[node name="SessionIdButton" type="Button" parent="VBoxContainer/HBoxContainer/LeftContainer/SessionControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Copy to clipboard"
+theme_type_variation = &"OrangeButton"
+text = "ABCDE"
+script = ExtResource("2_nx850")
+
+[node name="CenterContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+theme_type_variation = &"PaintSurfacePanelContainer"
+
+[node name="PaintSurface" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("ImageTexture_pxxsx")
+expand_mode = 1
+stretch_mode = 6
+script = ExtResource("7_4l2cn")
+surface_size = Vector2i(16, 16)
+background_color = Color(1, 0.95686275, 0.8980392, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer/CenterContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_type_variation = &"GreenButton"
+text = "START"
+
+[node name="WaitingToStartLabel" type="Label" parent="VBoxContainer/HBoxContainer/CenterContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+text = "Waiting to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WordControl" parent="VBoxContainer/HBoxContainer/CenterContainer/MarginContainer" instance=ExtResource("7_gt7ep")]
+unique_name_in_owner = true
+layout_mode = 2
+words_pool = ExtResource("2_p2q7i")
+
+[node name="RightContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Spacing" type="Control" parent="VBoxContainer/HBoxContainer/RightContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="PlayersContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/RightContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+script = ExtResource("4_vjtq2")
+PlayerControlScene = ExtResource("4_w2yr6")
+
+[node name="PlayerControl" parent="VBoxContainer/HBoxContainer/RightContainer/PlayersContainer" instance=ExtResource("4_w2yr6")]
+layout_mode = 2
+
+[node name="PlayerControl2" parent="VBoxContainer/HBoxContainer/RightContainer/PlayersContainer" instance=ExtResource("4_w2yr6")]
+layout_mode = 2
+
+[node name="PlayerControl3" parent="VBoxContainer/HBoxContainer/RightContainer/PlayersContainer" instance=ExtResource("4_w2yr6")]
+layout_mode = 2
+
+[node name="PlayerControl4" parent="VBoxContainer/HBoxContainer/RightContainer/PlayersContainer" instance=ExtResource("4_w2yr6")]
+layout_mode = 2
+
+[node name="EntryContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = -2
+alignment = 1
+
+[node name="Spacing" type="Control" parent="VBoxContainer/EntryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EntryLineEdit" type="LineEdit" parent="VBoxContainer/EntryContainer" node_paths=PackedStringArray("button")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"EntryLineEdit"
+placeholder_text = "Enter guess"
+alignment = 1
+max_length = 12
+keep_editing_on_text_submit = true
+selecting_enabled = false
+script = ExtResource("11_2le52")
+button = NodePath("../EntryButton")
+
+[node name="EntryButton" type="Button" parent="VBoxContainer/EntryContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_type_variation = &"EntryButton"
+text = "SEND"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/EntryContainer/EntryButton"]
+position = Vector2(40, 1)
+sprite_frames = SubResource("SpriteFrames_v6361")
+autoplay = "default"
+frame_progress = 0.6498677
+
+[node name="PaintCursor" type="Node2D" parent="." node_paths=PackedStringArray("paint_surface")]
+position = Vector2(160, 116)
+script = ExtResource("8_ff2ot")
+paint_surface = NodePath("../VBoxContainer/HBoxContainer/CenterContainer/PanelContainer/PaintSurface")
+color = Color(0.17254902, 0.11764706, 0.19215687, 1)
+metadata/_custom_type_script = "uid://bk8ldpyeb4js4"
+
+[node name="Sprite2D" type="Sprite2D" parent="PaintCursor"]
+visible = false
+modulate = Color(1, 0.4988736, 1, 1)
+texture = SubResource("AtlasTexture_3mevw")
+
+[node name="EndTurnControl" parent="." instance=ExtResource("8_t7q03")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LeftContainer/SessionControl/SessionIdButton" to="." method="_on_session_id_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timout" from="VBoxContainer/HBoxContainer/CenterContainer/MarginContainer/WordControl" to="." method="_on_word_control_timout"]
+[connection signal="text_submitted" from="VBoxContainer/EntryContainer/EntryLineEdit" to="." method="_on_entry_line_edit_text_submitted"]
+[connection signal="pressed" from="VBoxContainer/EntryContainer/EntryButton" to="." method="_on_entry_button_pressed"]
+[connection signal="timeout" from="EndTurnControl" to="." method="_on_end_turn_control_timeout"]

@@ -1,0 +1,177 @@
+[gd_scene load_steps=6 format=3 uid="uid://sqk4gsw6si3e"]
+
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_2bbkc"]
+[ext_resource type="Script" uid="uid://be2syub8lkj0s" path="res://game/end_turn_control.gd" id="1_s4tno"]
+[ext_resource type="SpriteFrames" uid="uid://dxf3mr5bwskxq" path="res://game/star_frames.tres" id="3_8jewm"]
+[ext_resource type="SpriteFrames" uid="uid://cmw8nx1ifk5me" path="res://game/player_control/characters/bear_sprite_frames.tres" id="3_whw7t"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="4_se3nq"]
+
+[node name="EndTurnControl" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2bbkc")
+script = ExtResource("1_s4tno")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
+
+[node name="Step1Container" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Step1Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="LooseLabel" type="Label" parent="Step1Container/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Nobody guessed the word"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinControl" type="VBoxContainer" parent="Step1Container/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PointsControl" type="HBoxContainer" parent="Step1Container/VBoxContainer/WinControl"]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="PlusLabel" type="Label" parent="Step1Container/VBoxContainer/WinControl/PointsControl"]
+layout_mode = 2
+theme_type_variation = &"LabelH2"
+text = "+"
+
+[node name="PointsLabel" type="Label" parent="Step1Container/VBoxContainer/WinControl/PointsControl"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelH2"
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="Step1Container/VBoxContainer/WinControl/PointsControl"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="StarAnimatedSprite2D" type="AnimatedSprite2D" parent="Step1Container/VBoxContainer/WinControl/PointsControl/TextureRect"]
+position = Vector2(8, 8)
+sprite_frames = ExtResource("3_8jewm")
+autoplay = "default"
+frame_progress = 0.45855683
+script = ExtResource("4_se3nq")
+
+[node name="CharacterContainer" type="HBoxContainer" parent="Step1Container/VBoxContainer/WinControl"]
+layout_mode = 2
+
+[node name="WinnnerCharacterControl" type="Control" parent="Step1Container/VBoxContainer/WinControl/CharacterContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="WinnerAnimatedSprite2D" type="AnimatedSprite2D" parent="Step1Container/VBoxContainer/WinControl/CharacterContainer/WinnnerCharacterControl"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("3_whw7t")
+animation = &"idle"
+centered = false
+flip_h = true
+script = ExtResource("4_se3nq")
+
+[node name="WinnerLabel" type="Label" parent="Step1Container/VBoxContainer/WinControl/CharacterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PlayerLabel"
+text = "WINNER"
+
+[node name="Label" type="Label" parent="Step1Container/VBoxContainer/WinControl/CharacterContainer"]
+layout_mode = 2
+text = " guessed"
+
+[node name="WordLabel" type="Label" parent="Step1Container/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"WordLabel"
+text = "WORD"
+horizontal_alignment = 1
+
+[node name="Step2Container" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Step2Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="NextTurnControl" type="HBoxContainer" parent="Step2Container/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Step2Container/VBoxContainer/NextTurnControl"]
+layout_mode = 2
+text = "Next player drawing is"
+
+[node name="NextPlayerCharacterControl" type="Control" parent="Step2Container/VBoxContainer/NextTurnControl"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="NextPlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="Step2Container/VBoxContainer/NextTurnControl/NextPlayerCharacterControl"]
+unique_name_in_owner = true
+sprite_frames = ExtResource("3_whw7t")
+animation = &"idle"
+centered = false
+script = ExtResource("4_se3nq")
+
+[node name="NextPlayerLabel" type="Label" parent="Step2Container/VBoxContainer/NextTurnControl"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PlayerLabel"
+text = "NEXT_PLAYER"
+
+[node name="EndGameControl" type="VBoxContainer" parent="Step2Container/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Step2Container/VBoxContainer/EndGameControl"]
+layout_mode = 2
+text = "Game is finish with"
+horizontal_alignment = 1
+
+[node name="BoxContainer" type="HBoxContainer" parent="Step2Container/VBoxContainer/EndGameControl"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="EndGamePointsLabel" type="Label" parent="Step2Container/VBoxContainer/EndGameControl/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"LabelH2"
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="Step2Container/VBoxContainer/EndGameControl/BoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="StarAnimatedSprite2D" type="AnimatedSprite2D" parent="Step2Container/VBoxContainer/EndGameControl/BoxContainer/TextureRect"]
+position = Vector2(8, 8)
+sprite_frames = ExtResource("3_8jewm")
+autoplay = "default"
+frame_progress = 0.45855683
+script = ExtResource("4_se3nq")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

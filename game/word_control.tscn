@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8i2mhxpa8to6"]
+
+[ext_resource type="Script" uid="uid://edh4ftvsvp0i" path="res://game/word_control.gd" id="1_7f7vp"]
+[ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_gh7bs"]
+
+[node name="WordControl" type="MarginContainer"]
+custom_minimum_size = Vector2(96, 24)
+offset_right = 96.0
+offset_bottom = 24.0
+theme = ExtResource("1_gh7bs")
+script = ExtResource("1_7f7vp")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"WordLabel"
+text = "0123456789AB"
+horizontal_alignment = 1

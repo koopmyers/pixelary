@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharactersCollection" load_steps=8 format=3 uid="uid://de8dcb6ch7g4m"]
+
+[ext_resource type="SpriteFrames" uid="uid://cmw8nx1ifk5me" path="res://game/player_control/characters/bear_sprite_frames.tres" id="1_02ttm"]
+[ext_resource type="Script" uid="uid://y2cejwqj70cm" path="res://game/player_control/characters/characters_collection.gd" id="1_4pevx"]
+[ext_resource type="SpriteFrames" uid="uid://uxfnp6tn6fyd" path="res://game/player_control/characters/beaver_sprite_frames.tres" id="2_g2hrx"]
+[ext_resource type="SpriteFrames" uid="uid://32h54hmbgtbr" path="res://game/player_control/characters/fox_sprite_frames.tres" id="3_33l7t"]
+[ext_resource type="SpriteFrames" uid="uid://bkdqois3htdvo" path="res://game/player_control/characters/mouse_sprite_frames.tres" id="4_tnxwi"]
+[ext_resource type="SpriteFrames" uid="uid://rpvqdc53okqq" path="res://game/player_control/characters/rabbit_sprite_frames.tres" id="5_mu42n"]
+[ext_resource type="SpriteFrames" uid="uid://dc5027rw5p41u" path="res://game/player_control/characters/raccoon_sprite_frames.tres" id="6_onif5"]
+
+[resource]
+script = ExtResource("1_4pevx")
+characters = Array[SpriteFrames]([ExtResource("1_02ttm"), ExtResource("2_g2hrx"), ExtResource("3_33l7t"), ExtResource("4_tnxwi"), ExtResource("5_mu42n"), ExtResource("6_onif5")])
