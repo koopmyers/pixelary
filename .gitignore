@@ -1,0 +1,29 @@
+#MacOS
+.DS_Store
+
+#Krita export
+*.png~
+
+# VSCode
+.vscode/
+
+# Addons
+addons/
+
+# webRTC gdextension
+/lib/
+webrtc.gdextension
+webrtc.gdextension.uid
+
+# Godot 4+ specific ignores
+.godot/
+
+# Godot-specific ignores
+/android/
+.import/
+export.cfg
+export_presets.cfg
+/export/
+
+# Imported translations (automatically generated from CSV files)
+*.translation
