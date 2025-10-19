@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_opffy"]
 [ext_resource type="Script" uid="uid://duphl8d45jpsg" path="res://lobby/character_button.gd" id="2_jcqtj"]
 [ext_resource type="SpriteFrames" uid="uid://cmw8nx1ifk5me" path="res://game/player_control/characters/bear_sprite_frames.tres" id="2_l7s0r"]
-[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="3_l7s0r"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://tools/sync_animated_sprite_2d.gd" id="3_l7s0r"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_opffy"]
 resource_local_to_scene = false

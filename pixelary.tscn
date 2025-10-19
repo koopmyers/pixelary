@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://b0qddpn07vgly" path="res://pixelary_session_context.tres" id="4_k2lm8"]
 [ext_resource type="PackedScene" uid="uid://cdxuw4tjglnga" path="res://game/game.tscn" id="5_imr0h"]
 [ext_resource type="Script" uid="uid://yg2qc1w7jecv" path="res://theme/background.gd" id="5_xvpke"]
-[ext_resource type="Script" uid="uid://brgfb012n5e0" path="res://input_toggle_visibility.gd" id="7_fx43c"]
+[ext_resource type="Script" uid="uid://brgfb012n5e0" path="res://tools/input_toggle_visibility.gd" id="7_fx43c"]
 [ext_resource type="Resource" uid="uid://de8dcb6ch7g4m" path="res://game/player_control/characters/character_collection.tres" id="9_abnv6"]
 [ext_resource type="Shader" uid="uid://4nkj614eslfn" path="res://theme/background.gdshader" id="9_f1eow"]
 [ext_resource type="PackedScene" uid="uid://dymta8wh4tcip" path="res://notification/notification.tscn" id="10_bh5qp"]

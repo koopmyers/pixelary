@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://be2syub8lkj0s" path="res://game/end_turn_control.gd" id="1_s4tno"]
 [ext_resource type="SpriteFrames" uid="uid://dxf3mr5bwskxq" path="res://game/star_frames.tres" id="3_8jewm"]
 [ext_resource type="SpriteFrames" uid="uid://cmw8nx1ifk5me" path="res://game/player_control/characters/bear_sprite_frames.tres" id="3_whw7t"]
-[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="4_se3nq"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://tools/sync_animated_sprite_2d.gd" id="4_se3nq"]
 
 [node name="EndTurnControl" type="PanelContainer"]
 anchors_preset = 15

@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bm7836lhqqeg0" path="res://theme/theme.tres" id="1_vhey4"]
 [ext_resource type="PackedScene" uid="uid://xxvi8xb4o7en" path="res://game/player_control/player_message_control.tscn" id="2_ht7ab"]
 [ext_resource type="SpriteFrames" uid="uid://cmw8nx1ifk5me" path="res://game/player_control/characters/bear_sprite_frames.tres" id="3_0mevs"]
-[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://sync_animated_sprite_2d.gd" id="4_i62og"]
+[ext_resource type="Script" uid="uid://cpqosb72lq6hi" path="res://tools/sync_animated_sprite_2d.gd" id="4_i62og"]
 [ext_resource type="Texture2D" uid="uid://biwofjyilldsv" path="res://game/player_control/brush.png" id="4_igihf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e778l"]
